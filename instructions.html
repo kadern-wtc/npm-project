@@ -85,28 +85,6 @@
   "license": "ISC"
 }</code></pre>
 <p>
-	Before we start installing packages, there is one more thing we should add to the package.json file.
-	Add a key name 'type' and set it's value to 'module', so that the file looks like this
-	(note that I added it to the top of the file, just after the opening curly brace):
-</p>
-<pre><code class="language-markup">{
-  "type": "module",
-  "name": "npm-project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
-}</code></pre>
-<p>
-	You don't need to worry about the 'type' property that we just added.
-	But if you are curious, it will allow us to use ES6 modules in our project (we'll discuss them later).
-</p>
-<p>
 	And we'll do one more thing before we start installing packages, I want to show you that you can quickly launch the project in a NodeJS web server 
 	by running this command:
 </p>
@@ -232,6 +210,34 @@ module.exports = {
 	Apparently you must install the <b>gulp-cli</b> package globally, and then install <b>gulp</b> into your project.
 	Run this command from your project folder:
 </p>
+
+<aside>
+	<h3>Enabling Our Project To Use ES6 Modules</h3>
+	<p>
+		Before we start using Gulp, there is one more thing we should add to the package.json file.
+		Add a key/property nameed 'type' and set it's value to 'module', so that the file looks like this
+		(note that I added it to the top of the file, just after the opening curly brace):
+	</p>
+	<pre><code class="language-markup">{
+  "type": "module",
+  "name": "npm-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}</code></pre>
+	<p>
+		This will allow us to use ES6 modules in our project, which are are about to start doing.
+		We'll talk more about ES6 modules soon.
+	</p>
+</aside>
+
+
 <pre><code class="language-markup">npm install gulp --save-dev</code></pre>
 <h3>Configuring Gulp</h3>
 <p>
@@ -677,6 +683,8 @@ describe("Test valid params for calculateLetterGrade()", () => {
 <p>
 	To stop the server, press <b>Ctrl + C</b>.
 </p>
+
+
 
         </main>
     </div>
