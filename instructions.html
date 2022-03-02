@@ -97,8 +97,32 @@ npm -v</code></pre>
   "author": "",
   "license": "ISC"
 }</code></pre>
+
+
+<h3>Enabling Our Project To Use ES6 Modules</h3>
 <p>
-	And we'll do one more thing before we start installing packages, I want to show you that you can quickly launch the project in a NodeJS web server 
+	Now we'll configure our project to use ES6 modules.
+	We'll talk more about ES6 modules soon.
+	To do this, add a key/property named 'type' and set it's value to 'module', to the package.json file so that it looks like this:
+</p>
+<pre><code class="language-markup">{
+	"type": "module",         <<<<<< ADD THIS LINE
+	"name": "npm-project",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}</code></pre>
+
+
+<h3>Running the Project on a Live Web Server</h3>
+<p>
+	We'll do one more thing before we start installing packages, I want to show you that you can quickly launch the project in a NodeJS web server 
 	by running this command:
 </p>
 <pre><code class="language-markup">npx serve ./src</code></pre>
@@ -141,7 +165,7 @@ npm install --save-dev @babel/plugin-syntax-class-properties</code></pre>
 	Go ahead and create this file in the project folder and add this to it:
 </p>
 <pre><code class="language-markup">
-module.exports = {
+export default {
     "presets": [
         [
             "@babel/preset-env",
@@ -226,31 +250,6 @@ module.exports = {
 	Apparently you must install the <b>gulp-cli</b> package globally, and then install <b>gulp</b> into your project.
 	Run this command from your project folder:
 </p>
-
-<h3>Enabling Our Project To Use ES6 Modules</h3>
-<p>
-	Before we start using Gulp, there is one more thing we should add to the package.json file.
-	Add a key/property nameed 'type' and set it's value to 'module', so that the file looks like this
-	(note that I added it to the top of the file, just after the opening curly brace):
-</p>
-<pre><code class="language-markup">{
-	"type": "module",
-	"name": "npm-project",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-	"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC"
-}</code></pre>
-<p>
-	This will allow us to use ES6 modules in our project, which are are about to start doing.
-	We'll talk more about ES6 modules soon.
-</p>
-
 
 <pre><code class="language-markup">npm install gulp --save-dev</code></pre>
 <h3>Configuring Gulp</h3>
@@ -675,7 +674,8 @@ describe("Test valid params for calculateLetterGrade()", () => {
 <p>
 	Now we'll install an NPM package that allows us to set up a 'mock' web service.
 	The package is called <b>JSON Server</b>.
-	To install JSON Server, run this command from the project folder:
+	To install JSON Server, run this command from the project folder
+	(remember that you must run this command using <b>sudo</b> if you are using Mac OS or Ubuntu):
 </p>
 <pre><code class="language-markup">npm install -g json-server</code></pre>
 <p>
